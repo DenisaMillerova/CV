@@ -20,12 +20,46 @@ body {
 /* Background animation layer */
 
 #background {
+
     position: fixed;
-    inset: 0;
+
+    inset: -10%;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.15), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(45,212,191,0.12), transparent 30%);
+        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(45,212,191,0.15), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(139,92,246,0.08), transparent 35%);
+
     z-index: -1;
+
+    animation: floatingGlow 18s ease-in-out infinite alternate;
+
+}
+
+
+
+@keyframes floatingGlow {
+
+    0% {
+
+        transform: translate(0px, 0px) scale(1);
+
+    }
+
+
+    50% {
+
+        transform: translate(-25px, 20px) scale(1.05);
+
+    }
+
+
+    100% {
+
+        transform: translate(25px, -20px) scale(1);
+
+    }
+
 }
 
 
@@ -178,6 +212,7 @@ h2 {
 .idea-card {
 
     margin-top: 30px;
+
     padding: 35px;
 
     background: rgba(255,255,255,0.05);
@@ -193,8 +228,11 @@ h2 {
 
 
 .idea-card h3 {
+
     margin-bottom: 15px;
+
     font-size: 25px;
+
 }
 
 
@@ -220,6 +258,29 @@ h2 {
 
 
 
+/* Scroll animation */
+
+.hidden {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition: all 0.8s ease;
+
+}
+
+
+.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+
 /* Footer */
 
 footer {
@@ -234,46 +295,226 @@ footer {
 
 
 
+/* Login / Access page */
+
+.login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+
+.login-box {
+
+    max-width: 450px;
+
+    width: 100%;
+
+    padding: 50px 40px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(15px);
+
+    animation: fadeIn 1s ease;
+
+}
+
+
+
+.lock-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.login-box h1 {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.login-box p {
+
+    color: #cbd5e1;
+
+    font-size: 17px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.login-box input {
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.login-box input::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+
+.login-box button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 30px;
+
+    border: none;
+
+    background: #38bdf8;
+
+    color: #0b1120;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+
+.login-box button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
 /* Mobile */
 
 @media(max-width:768px){
 
     header {
+
         padding: 20px 5%;
+
     }
 
 
     nav {
+
         display:none;
+
     }
 
 
     .hero {
+
         padding: 0 5%;
+
     }
 
 
     .intro {
+
         font-size:18px;
+
     }
 
 
     h1 {
+
         font-size:60px;
+
     }
 
 
     .content-section {
+
         padding:70px 5%;
+
     }
 
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
+    .login-box {
+
+        padding:40px 25px;
+
+    }
+
+
+    .login-box h1 {
+
+        font-size:38px;
+
+    }
+
 }

@@ -1,177 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Denisa Millerová | People • Processes • Technology</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+
+<body class="login-page">
 
 <div id="background"></div>
 
-<header>
+<div class="login-box">
 
-    <div class="logo">
-        DM
+    <div class="lock-icon">
+        🔒
     </div>
 
-    <nav>
 
-        <a href="#about">About</a>
+    <h1>
+        Denisa Millerová
+    </h1>
 
-        <a href="#experience">Experience</a>
-
-        <a href="#ideas">Ideas</a>
-
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-</header>
-
-
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <span class="eyebrow">
-            PEOPLE • PROCESSES • TECHNOLOGY
-        </span>
-
-        <h1>
-            Denisa<br>
-            Millerová
-        </h1>
-
-        <p class="intro">
-
-            I enjoy connecting people, systems and data to create
-            simpler, smarter HR processes.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#about" class="btn-primary">
-                Explore
-            </a>
-
-            <a href="#contact" class="btn-secondary">
-                Contact
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<section id="about" class="content-section">
-
-    <h2>About</h2>
 
     <p>
-
-        I have experience supporting HR operations, implementing
-        SAP SuccessFactors and improving employee processes.
-
-        What excites me most is understanding how people,
-        systems and data work together.
-
-        I enjoy simplifying complex processes and exploring how
-        automation and AI can improve everyday HR work.
-
+        Exploring People, Processes & Technology.
+        <br><br>
+        Enter the access code to discover more.
     </p>
 
-</section>
+
+    <input 
+        type="password" 
+        id="accessCode" 
+        placeholder="Enter access code"
+    >
 
 
-
-<section id="experience" class="content-section">
-
-    <h2>Experience</h2>
-
-    <div class="placeholder-card">
-
-SENIOR HR SERVICE ANALYST|MICROSOFT, S.R.O.
-11/2018 – Present
-Offboarding - 3/2026 – Present
-• Ensuring smooth offboarding workflows and accurate data flow to
-downstream HR and payroll systems
-• Maintaining and validating termination records to support system
-consistency and compliance
-• Coordinating with payroll and HR teams to resolve complex
-termination-related issues
-• Troubleshooting unexpected data discrepancies and contributing
-to process improvements
-
-    </div>
-
-</section>
+    <button onclick="checkCode()">
+        Discover More
+    </button>
 
 
-
-<section id="ideas" class="content-section">
-
-    <h2>Ideas</h2>
-
-    <div class="idea-card">
-
-        <h3>
-            Employee Document Generator
-        </h3>
-
-        <p>
-
-            What if a single employee form could automatically
-            generate onboarding documents, update Excel trackers,
-            prepare contracts and trigger onboarding tasks?
-
-        </p>
-
-        <button>
-
-            Explore idea
-
-        </button>
-
-    </div>
-
-</section>
+    <p id="message"></p>
 
 
+</div>
 
-<section id="contact" class="content-section">
-
-    <h2>Contact</h2>
-
-    <p>
-
-        📞 721 878 147
-
-    </p>
-
-</section>
-
-
-
-<footer>
-
-    Designed & built by Denisa Millerová
-
-</footer>
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
