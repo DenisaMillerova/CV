@@ -518,3 +518,52 @@ footer {
     }
 
 }
+.shake {
+
+    animation: shake 0.4s;
+
+}
+
+@keyframes shake {
+
+    0% { transform: translateX(0); }
+
+    20% { transform: translateX(-6px); }
+
+    40% { transform: translateX(6px); }
+
+    60% { transform: translateX(-6px); }
+
+    80% { transform: translateX(6px); }
+
+    100% { transform: translateX(0); }
+
+}
+.logo-circle {
+
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    color: #38bdf8;
+
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    box-shadow: 0 0 30px rgba(56,189,248,0.15);
+
+    animation: pulse 4s ease-in-out infinite;
+
+}
