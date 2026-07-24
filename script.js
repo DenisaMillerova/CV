@@ -1,98 +1,82 @@
-// ----------------------------
-// ACCESS CODE
-// ----------------------------
+/* ========================================
+   JAVASCRIPT INTERACTIONS
+======================================== */
 
-const ACCESS_CODE = "Hello123";
+.hero-reveal,
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
 
-function checkCode() {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 
-    const input = document.getElementById("accessCode");
-    const message = document.getElementById("message");
+    transition-delay: var(--reveal-delay, 0ms);
+}
 
-    if (input.value === ACCESS_CODE) {
+.hero-reveal.is-visible,
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        message.style.color = "#2dd4bf";
-        message.innerHTML = "Welcome. Let's explore together.";
-        
-        setTimeout(() => {
+header {
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-            window.location.href = "portfolio.html";
+header.is-scrolled {
+    background: rgba(11, 13, 18, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
 
-        }, 700);
+nav a.is-active {
+    color: #f4f1ec;
+}
 
-    } else {
+nav a.is-active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
 
-        message.style.color = "#fbbf24";
-        message.innerHTML = "Please try again.";
+.expertise-card,
+.interests-card {
+    position: relative;
+    overflow: hidden;
+}
 
-        input.classList.add("shake");
+.expertise-card::after,
+.interests-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
 
-        setTimeout(() => {
+    pointer-events: none;
 
-            input.classList.remove("shake");
+    background:
+        radial-gradient(
+            circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+            rgba(255, 255, 255, 0.055),
+            transparent 34%
+        );
 
-        }, 500);
+    opacity: 0;
 
+    transition: opacity 0.3s ease;
+}
+
+.expertise-card:hover::after,
+.interests-card:hover::after {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-reveal,
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
     }
-
-}
-
-
-
-// ----------------------------
-// SCROLL ANIMATION
-// ----------------------------
-
-const sections = document.querySelectorAll(".content-section");
-
-if (sections.length > 0) {
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-            }
-
-        });
-
-    }, {
-
-        threshold: 0.15
-
-    });
-
-    sections.forEach(section => {
-
-        section.classList.add("hidden");
-
-        observer.observe(section);
-
-    });
-
-}
-
-
-
-// ----------------------------
-// BACKGROUND EFFECT
-// ----------------------------
-
-const background = document.getElementById("background");
-
-if (background) {
-
-    document.addEventListener("mousemove", (event) => {
-
-        const x = event.clientX / window.innerWidth;
-        const y = event.clientY / window.innerHeight;
-
-        background.style.transform =
-            `translate(${x * 15}px, ${y * 15}px)`;
-
-    });
-
 }
