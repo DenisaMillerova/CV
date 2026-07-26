@@ -10,51 +10,83 @@
 
     <link rel="stylesheet" href="style.css">
 
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
 
 <body class="login-page">
 
-<div id="background"></div>
+    <div id="background" aria-hidden="true"></div>
 
-<div class="login-box">
+    <main class="login-main">
 
-    <div class="logo-circle">
-    DM
-    </div>
+        <section
+            class="login-box"
+            aria-labelledby="login-heading"
+        >
 
-    <h1>
-        Denisa Millerová
-    </h1>
+            <div
+                class="logo-circle"
+                aria-hidden="true"
+            >
+                DM
+            </div>
 
+            <p class="login-eyebrow">
+                PEOPLE • PROCESSES • TECHNOLOGY
+            </p>
 
-    <p>
-        Exploring People, Processes & Technology.
-        <br><br>
-        Enter the access code to discover more.
-    </p>
+            <h1 id="login-heading">
+                Denisa Millerová
+            </h1>
 
+            <p class="login-description">
+                Exploring People, Processes &amp; Technology.
+                <br><br>
+                Enter the access code to discover more.
+            </p>
 
-    <input 
-        type="password" 
-        id="accessCode" 
-        placeholder="Enter access code"
-    >
+            <form
+                class="login-form"
+                onsubmit="checkCode(); return false;"
+            >
 
+                <label for="accessCode">
+                    Access code
+                </label>
 
-    <button onclick="checkCode()">
-        Discover More
-    </button>
+                <input
+                    type="password"
+                    id="accessCode"
+                    name="accessCode"
+                    placeholder="Enter access code"
+                    autocomplete="current-password"
+                    required
+                >
 
+                <button type="submit">
+                    Discover More
+                </button>
 
-    <p id="message"></p>
+            </form>
 
+            <p
+                id="message"
+                class="login-message"
+                aria-live="polite"
+            ></p>
 
-</div>
+        </section>
 
+    </main>
 
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
 

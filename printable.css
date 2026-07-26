@@ -1,0 +1,611 @@
+/* =========================================================
+   DENISA MILLEROVÁ — INTERVIEW COMPANION
+   Printable A4 stylesheet
+   ========================================================= */
+
+
+/* ---------- COLOURS & VARIABLES ---------- */
+
+:root {
+  --text: #24343c;
+  --text-soft: #52646d;
+  --heading: #183b4a;
+
+  --accent: #2f7183;
+  --accent-dark: #235866;
+  --accent-soft: rgba(47, 113, 131, 0.08);
+  --accent-lighter: rgba(47, 113, 131, 0.04);
+
+  --line: #cbd7dc;
+  --line-dark: #8da4ae;
+
+  --paper: #ffffff;
+  --page-background: #e9edef;
+}
+
+
+/* ---------- GENERAL RESET ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--page-background);
+}
+
+body {
+  margin: 0;
+  padding: 12mm 0;
+
+  color: var(--text);
+  background: var(--page-background);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 9.2pt;
+  line-height: 1.38;
+
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ---------- A4 PAGE ---------- */
+
+.page {
+  position: relative;
+
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 13mm 15mm 11mm;
+
+  background: var(--paper);
+
+  box-shadow:
+    0 2px 8px rgba(35, 58, 68, 0.08),
+    0 12px 32px rgba(35, 58, 68, 0.12);
+}
+
+
+/* ---------- HEADER ---------- */
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 31mm;
+  align-items: start;
+  gap: 8mm;
+
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.identity {
+  min-width: 0;
+}
+
+.identity h1 {
+  margin-bottom: 1.5mm;
+
+  color: var(--heading);
+
+  font-size: 23pt;
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+
+.motto {
+  max-width: 130mm;
+  margin-bottom: 2.5mm;
+
+  color: var(--accent-dark);
+
+  font-size: 11pt;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1mm 3mm;
+
+  margin-bottom: 0;
+
+  color: var(--text-soft);
+
+  font-size: 8.5pt;
+}
+
+.contact a {
+  transition: color 0.2s ease;
+}
+
+.contact a:hover {
+  color: var(--accent);
+}
+
+
+/* ---------- QR CODE ---------- */
+
+.qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 31mm;
+  margin: 0;
+  padding: 0;
+
+  justify-self: end;
+  align-self: start;
+
+  text-align: center;
+}
+
+.qr img {
+  display: block;
+
+  width: 25mm;
+  height: 25mm;
+  margin: 0 0 1.2mm;
+
+  object-fit: contain;
+}
+
+.qr span {
+  display: block;
+
+  width: 31mm;
+
+  color: var(--text-soft);
+
+  font-size: 6.8pt;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+/* ---------- SECTION HEADINGS ---------- */
+
+section > h2,
+.section-heading {
+  margin-bottom: 2.5mm;
+
+  color: var(--heading);
+
+  font-size: 11pt;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+}
+
+
+/* ---------- WHAT DRIVES ME ---------- */
+
+.drives {
+  margin-bottom: 4.5mm;
+  padding: 3.5mm 4.5mm;
+
+  background: var(--accent-soft);
+  border: none;
+  border-radius: 2.2mm;
+
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.drives h2 {
+  margin-bottom: 1.7mm;
+}
+
+.drives .lead {
+  margin-bottom: 1mm;
+
+  color: var(--heading);
+
+  font-size: 9.7pt;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.drives p:last-child {
+  margin-bottom: 0;
+
+  color: var(--text-soft);
+
+  font-size: 8.9pt;
+  line-height: 1.4;
+}
+
+
+/* ---------- EXPERTISE SECTION ---------- */
+
+.expertise-section {
+  margin-bottom: 4.5mm;
+}
+
+.expertise-section > h2 {
+  margin-bottom: 2.5mm;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3mm;
+}
+
+.expertise-card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding: 3.2mm 3.8mm;
+
+  background: var(--accent-lighter);
+  border: 1px solid rgba(47, 113, 131, 0.15);
+  border-radius: 2mm;
+
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.expertise-card h3 {
+  margin-bottom: 1.3mm;
+
+  color: var(--accent-dark);
+
+  font-size: 9.5pt;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.expertise-card .intro {
+  min-height: 11.5mm;
+  margin-bottom: 1.7mm;
+
+  color: var(--text-soft);
+
+  font-size: 8.1pt;
+  line-height: 1.35;
+}
+
+
+/* ---------- EXPERTISE BULLETS ---------- */
+
+/*
+   Menší odsazení seznamu.
+   Všechny odrážky i text začínají stejně ve všech kartách.
+*/
+
+.expertise-card ul {
+  margin: 0;
+  padding: 0 0 0 3.6mm;
+
+  list-style-position: outside;
+}
+
+.expertise-card li {
+  margin: 0 0 0.75mm;
+  padding-left: 0.3mm;
+
+  color: var(--text);
+
+  font-size: 7.9pt;
+  line-height: 1.28;
+}
+
+.expertise-card li:last-child {
+  margin-bottom: 0;
+}
+
+.expertise-card li::marker {
+  color: var(--accent);
+  font-size: 0.9em;
+}
+
+
+/* ---------- CAREER JOURNEY ---------- */
+
+.journey {
+  margin-bottom: 4mm;
+
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.journey > h2 {
+  margin-bottom: 2.5mm;
+}
+
+.timeline {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  width: 100%;
+  min-height: 37mm;
+  padding: 0 2mm;
+}
+
+
+/* Horizontální čára */
+
+.timeline-line {
+  position: absolute;
+  z-index: 0;
+
+  top: 50%;
+  right: 3%;
+  left: 3%;
+
+  height: 1.2px;
+
+  background: var(--line-dark);
+
+  transform: translateY(-50%);
+}
+
+
+/* Jednotlivé body časové osy */
+
+.timeline-item {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 37mm;
+
+  text-align: center;
+}
+
+.timeline-item-above {
+  justify-content: flex-start;
+}
+
+.timeline-item-below {
+  justify-content: flex-end;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 34mm;
+}
+
+.timeline-item-above .timeline-content {
+  margin-bottom: auto;
+}
+
+.timeline-item-below .timeline-content {
+  margin-top: auto;
+}
+
+
+/* Body časové osy */
+
+.timeline-marker {
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: 50%;
+
+  width: 3mm;
+  height: 3mm;
+
+  background: var(--paper);
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* Timeline text */
+
+.timeline-content time {
+  display: block;
+  margin-bottom: 0.4mm;
+
+  color: var(--accent);
+
+  font-size: 6.8pt;
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.timeline-content strong {
+  display: block;
+  margin-bottom: 0.4mm;
+
+  color: var(--accent-dark);
+
+  font-size: 7.6pt;
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.timeline-content span {
+  display: block;
+
+  color: var(--text-soft);
+
+  font-size: 6.8pt;
+  font-weight: 400;
+  line-height: 1.17;
+}
+
+.timeline-content small {
+  display: block;
+  margin-top: 0.3mm;
+
+  color: var(--text-soft);
+
+  font-size: 6.3pt;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+
+/* ---------- INTERVIEW NOTES ---------- */
+
+.notes {
+  margin-top: 2mm;
+  padding-top: 3mm;
+
+  border-top: 1px solid var(--line);
+
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.notes h2 {
+  margin-bottom: 1.5mm;
+}
+
+.note-lines {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.note-lines div {
+  height: 7mm;
+
+  border-bottom: 1px solid #aebdc4;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 5mm;
+
+  margin-top: 3mm;
+
+  color: var(--text-soft);
+
+  font-size: 6.7pt;
+  line-height: 1.25;
+}
+
+.footer-message {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm 3mm;
+
+  font-weight: 500;
+}
+
+.footer small {
+  flex-shrink: 0;
+
+  color: var(--text-soft);
+  font-size: 6.5pt;
+  white-space: nowrap;
+}
+
+
+/* ---------- SCREEN PREVIEW ---------- */
+
+/*
+   Záměrně neměníme timeline na vertikální.
+   Dokument má také na obrazovce zachovat A4 podobu.
+*/
+
+@media screen and (max-width: 850px) {
+  body {
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .page {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+
+/* ---------- PRINT SETTINGS ---------- */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+
+    margin: 0;
+    padding: 0;
+
+    background: #ffffff;
+  }
+
+  body {
+    font-size: 9.2pt;
+
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 13mm 15mm 11mm;
+
+    box-shadow: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .header,
+  .drives,
+  .expertise-card,
+  .journey,
+  .notes {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
