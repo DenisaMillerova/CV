@@ -175,16 +175,29 @@ a {
   object-fit: contain;
 }
 
-.qr span {
+.qr span,
+.qr-password {
   display: block;
 
   width: 31mm;
+  margin: 0;
 
   color: var(--text-soft);
 
+  font-family: inherit;
   font-size: 6.8pt;
   font-weight: 500;
   line-height: 1.2;
+  text-align: center;
+}
+
+.qr-password {
+  margin-top: 0.8mm;
+}
+
+.qr-password strong {
+  font: inherit;
+  color: inherit;
 }
 
 

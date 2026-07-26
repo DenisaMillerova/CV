@@ -9,7 +9,7 @@
        LOGIN CONFIGURATION
     ======================================== */
 
-    const ACCESS_CODE = "Hello123";
+    const ACCESS_CODE = "Hello8";
     const PORTFOLIO_URL = "portfolio.html";
 
 

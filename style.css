@@ -649,7 +649,7 @@ section:last-child {
 
     color: rgba(235, 231, 224, 0.7);
 
-    font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
     font-weight: 300;
     line-height: 1.85;
 }
@@ -731,6 +731,31 @@ a:focus-visible {
     background: rgba(242, 238, 231, 0.92);
 }
 
+.skip-link {
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    z-index: 1000;
+
+    padding: 0.75rem 1rem;
+
+    color: #11141a;
+    background: #f2eee7;
+
+    border-radius: 0 0 8px 8px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transform: translateY(-120%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
 /* ========================================
    TABLET
 ======================================== */
@@ -777,6 +802,11 @@ a:focus-visible {
         min-height: 68px;
         padding: 0 1.2rem;
 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
         background: transparent;
         border-bottom: none;
 
@@ -785,6 +815,8 @@ a:focus-visible {
     }
 
     .logo {
+        flex-shrink: 0;
+
         width: 40px;
         height: 40px;
 
@@ -792,7 +824,24 @@ a:focus-visible {
     }
 
     nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    nav a {
         display: none;
+
+        font-size: 0.68rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+    }
+
+    nav a[href="#expertise"],
+    nav a[href="#contact"] {
+        display: block;
     }
 
     main {
@@ -804,7 +853,7 @@ a:focus-visible {
     }
 
     section:first-child {
-        padding-top: 8.8rem;
+        padding-top: 8rem;
     }
 
     section:last-child {
@@ -864,6 +913,7 @@ a:focus-visible {
     }
 
     .expertise-grid {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
