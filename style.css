@@ -360,7 +360,7 @@ section:last-child {
 }
 
 .intro {
-    max-width: 720px;
+    max-width: 850px;
     margin-top: 2.6rem;
 
     color: rgba(235, 231, 224, 0.7);
@@ -371,7 +371,7 @@ section:last-child {
 }
 
 .hero-description {
-    max-width: 720px;
+    max-width: 850px;
     margin-top: 1.25rem;
 
     color: rgba(235, 231, 224, 0.62);
@@ -477,8 +477,8 @@ section:last-child {
 
 .expertise-grid {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .expertise-card {
@@ -535,6 +535,10 @@ section:last-child {
 /* ========================================
    CAREER TIMELINE
 ======================================== */
+
+#career > p {
+    max-width: 850px;
+}
 
 .timeline {
     position: relative;
@@ -641,7 +645,7 @@ section:last-child {
 }
 
 .contact-card > p {
-    max-width: 780px;
+    max-width: 850px;
 
     color: rgba(235, 231, 224, 0.7);
 
