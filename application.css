@@ -1,0 +1,626 @@
+/* ========================================
+   APPLICATION
+   One-column A4 application document
+======================================== */
+
+:root {
+    --background: #1a1d24;
+    --page-background: #0b0d12;
+
+    --surface: rgba(255, 255, 255, 0.035);
+    --surface-strong: rgba(255, 255, 255, 0.055);
+
+    --text: #f4f1ec;
+    --text-soft: rgba(235, 231, 224, 0.74);
+    --text-muted: rgba(220, 215, 205, 0.5);
+
+    --line: rgba(255, 255, 255, 0.09);
+    --line-strong: rgba(255, 255, 255, 0.15);
+
+    --accent-violet: rgba(113, 91, 179, 0.26);
+    --accent-blue: rgba(44, 89, 132, 0.18);
+    --accent-teal: rgba(70, 119, 111, 0.14);
+
+    --page-width: 210mm;
+    --page-height: 297mm;
+
+    --page-padding-x: 17mm;
+    --page-padding-y: 14mm;
+
+    --radius-large: 22px;
+    --radius-medium: 15px;
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+html {
+    box-sizing: border-box;
+    background: var(--background);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+
+    display: flex;
+    justify-content: center;
+
+    color: var(--text);
+    background: var(--background);
+
+    font-family: "Inter", sans-serif;
+    font-size: 10.2pt;
+    line-height: 1.55;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* ========================================
+   A4 PAGE
+======================================== */
+
+.page {
+    position: relative;
+
+    width: var(--page-width);
+    min-height: var(--page-height);
+
+    padding:
+        var(--page-padding-y)
+        var(--page-padding-x);
+
+    overflow: hidden;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 88% 7%,
+            var(--accent-violet),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 10% 93%,
+            var(--accent-teal),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 82% 72%,
+            var(--accent-blue),
+            transparent 29%
+        ),
+        var(--page-background);
+
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+}
+
+.page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(11, 13, 18, 0.01),
+            rgba(11, 13, 18, 0.17)
+        );
+}
+
+.page-content {
+    position: relative;
+    z-index: 1;
+
+    min-height:
+        calc(
+            var(--page-height) -
+            (2 * var(--page-padding-y))
+        );
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.document-header {
+    padding-bottom: 7mm;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow,
+.section-label,
+.access-label,
+.expertise-footer-label {
+    color: var(--text-muted);
+
+    font-size: 6.8pt;
+    font-weight: 600;
+    letter-spacing: 0.19em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    margin-bottom: 3.5mm;
+}
+
+.document-header h1 {
+    color: var(--text);
+
+    font-size: 31pt;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 1;
+}
+
+.contact-list {
+    margin-top: 5mm;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.2mm;
+
+    color: rgba(244, 241, 236, 0.86);
+
+    font-size: 8.6pt;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.contact-list a {
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+    color: var(--text);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-divider {
+    color: var(--text-muted);
+}
+
+
+/* ========================================
+   APPLICATION LETTER
+======================================== */
+
+.application-letter {
+    max-width: 162mm;
+    margin-top: 8mm;
+}
+
+.application-letter h2 {
+    color: var(--text);
+
+    font-size: 14pt;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.application-letter p {
+    margin-top: 3.5mm;
+
+    color: var(--text-soft);
+
+    font-size: 9.25pt;
+    font-weight: 300;
+    line-height: 1.62;
+}
+
+.application-letter strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+
+/* ========================================
+   PORTFOLIO SECTION
+======================================== */
+
+.portfolio-section {
+    margin-top: 8mm;
+}
+
+.portfolio-heading {
+    max-width: 150mm;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 2.3mm;
+}
+
+.portfolio-heading h2 {
+    color: var(--text);
+
+    font-size: 14pt;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.portfolio-introduction {
+    margin-top: 2.5mm;
+
+    color: var(--text-soft);
+
+    font-size: 8.8pt;
+    font-weight: 300;
+    line-height: 1.55;
+}
+
+.hosting-note {
+    margin-top: 1mm;
+
+    color: var(--text-muted);
+
+    font-size: 7.2pt;
+    font-weight: 300;
+    line-height: 1.45;
+}
+
+
+/* ========================================
+   PORTFOLIO CARD
+======================================== */
+
+.portfolio-card {
+    margin-top: 4mm;
+    padding: 5mm 6mm;
+
+    display: grid;
+    grid-template-columns: 39mm minmax(0, 1fr);
+    gap: 7mm;
+    align-items: center;
+
+    background: rgba(18, 21, 28, 0.7);
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.portfolio-qr-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-decoration: none;
+}
+
+.portfolio-qr {
+    width: 35mm;
+    height: 35mm;
+    padding: 2.5mm;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f2eee7;
+
+    border-radius: 14px;
+}
+
+.portfolio-qr img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.qr-caption {
+    margin-top: 1.8mm;
+
+    color: var(--text-muted);
+
+    font-size: 6.4pt;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.portfolio-access-details {
+    min-width: 0;
+}
+
+.access-item {
+    padding: 2.5mm 0;
+}
+
+.access-item:first-child {
+    padding-top: 0;
+}
+
+.access-item:last-child {
+    padding-bottom: 0;
+}
+
+.access-item + .access-item {
+    border-top: 1px solid var(--line);
+}
+
+.access-label {
+    display: block;
+}
+
+.access-value {
+    display: block;
+    margin-top: 1.2mm;
+
+    overflow-wrap: anywhere;
+
+    color: var(--text);
+
+    font-size: 8.3pt;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+a.access-value {
+    width: fit-content;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+a.access-value:hover,
+a.access-value:focus-visible {
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.access-password {
+    letter-spacing: 0.02em;
+}
+
+
+/* ========================================
+   CLOSING
+======================================== */
+
+.document-closing {
+    margin-top: auto;
+    padding-top: 7mm;
+}
+
+.closing-message {
+    padding-top: 5mm;
+
+    border-top: 1px solid var(--line);
+}
+
+.closing-message p {
+    max-width: 145mm;
+
+    color: var(--text-soft);
+
+    font-size: 8.4pt;
+    font-weight: 300;
+    line-height: 1.55;
+}
+
+.closing-message p + p {
+    margin-top: 2mm;
+}
+
+.closing-message .signature {
+    margin-top: 4mm;
+
+    color: var(--text);
+
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   EXPERTISE FOOTER
+======================================== */
+
+.expertise-footer {
+    margin-top: 5mm;
+    padding-top: 3.5mm;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.expertise-footer-label {
+    display: block;
+    margin-bottom: 1.5mm;
+
+    color: rgba(220, 215, 205, 0.34);
+}
+
+.expertise-footer p {
+    color: rgba(220, 215, 205, 0.38);
+
+    font-size: 6.2pt;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    line-height: 1.5;
+}
+
+.expertise-footer p span {
+    margin: 0 1mm;
+
+    color: rgba(220, 215, 205, 0.24);
+}
+
+
+/* ========================================
+   FOCUS
+======================================== */
+
+a:focus-visible {
+    outline: 2px solid rgba(244, 241, 236, 0.8);
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   SCREEN RESPONSIVENESS
+======================================== */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 0;
+    }
+
+    .page {
+        width: 100%;
+        min-height: 100vh;
+
+        padding: 40px 28px;
+
+        box-shadow: none;
+    }
+
+    .page-content {
+        min-height: calc(100vh - 80px);
+    }
+
+}
+
+
+@media (max-width: 620px) {
+
+    .document-header h1 {
+        font-size: clamp(2.7rem, 14vw, 4.5rem);
+    }
+
+    .contact-list {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .contact-divider {
+        display: none;
+    }
+
+    .application-letter {
+        max-width: none;
+    }
+
+    .portfolio-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .portfolio-access-details {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================
+   PRINT
+======================================== */
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+
+    html,
+    body {
+        width: var(--page-width);
+        height: var(--page-height);
+
+        margin: 0;
+        padding: 0;
+
+        background: var(--page-background) !important;
+    }
+
+    body {
+        display: block;
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page {
+        width: var(--page-width);
+        height: var(--page-height);
+        min-height: 0;
+
+        margin: 0;
+
+        padding:
+            var(--page-padding-y)
+            var(--page-padding-x);
+
+        overflow: hidden;
+
+        box-shadow: none;
+
+        break-after: avoid;
+        break-inside: avoid;
+
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    .page-content {
+        min-height:
+            calc(
+                var(--page-height) -
+                (2 * var(--page-padding-y))
+            );
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}

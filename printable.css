@@ -601,11 +601,37 @@ section > h2,
 
   .page {
     width: 210mm;
-    min-height: 297mm;
-    margin: 0;
-    padding: 13mm 15mm 11mm;
+    min-height: 0;
+    height: 297mm;
 
+    margin: 0;
+    padding: 11.5mm 15mm 9.5mm;
+
+    overflow: hidden;
     box-shadow: none;
+  }
+
+  .header {
+    margin-bottom: 4mm;
+    padding-bottom: 3.5mm;
+  }
+
+  .qr-password {
+    margin-top: 0.4mm;
+    line-height: 1.1;
+  }
+
+  .drives,
+  .expertise-section {
+    margin-bottom: 4mm;
+  }
+
+  .journey {
+    margin-bottom: 3.5mm;
+  }
+
+  .footer {
+    margin-top: 2.5mm;
   }
 
   a {
