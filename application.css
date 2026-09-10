@@ -559,7 +559,7 @@ a:focus-visible {
 
 }
 
-
+```css
 /* ========================================
    PRINT
 ======================================== */
@@ -609,6 +609,36 @@ a:focus-visible {
 
         page-break-after: avoid;
         page-break-inside: avoid;
+
+        /* Keep the subtle gradient background when printing */
+        background:
+            radial-gradient(
+                circle at 88% 7%,
+                var(--accent-violet),
+                transparent 27%
+            ),
+            radial-gradient(
+                circle at 10% 93%,
+                var(--accent-teal),
+                transparent 32%
+            ),
+            radial-gradient(
+                circle at 82% 72%,
+                var(--accent-blue),
+                transparent 29%
+            ),
+            var(--page-background) !important;
+    }
+
+    .page::before {
+        display: block;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(11, 13, 18, 0.01),
+                rgba(11, 13, 18, 0.17)
+            ) !important;
     }
 
     .page-content {
@@ -624,3 +654,4 @@ a:focus-visible {
     }
 
 }
+```
