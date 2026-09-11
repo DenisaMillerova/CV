@@ -563,12 +563,6 @@ a:focus-visible {
 /* ========================================
    PRINT
 ======================================== */
-
-@page {
-    size: A4 portrait;
-    margin: 0;
-}
-
 @page {
     size: A4 portrait;
     margin: 0;
@@ -580,7 +574,6 @@ a:focus-visible {
     body {
         margin: 0;
         padding: 0;
-
         background: var(--page-background) !important;
     }
 
@@ -592,37 +585,22 @@ a:focus-visible {
     }
 
     .page {
+        position: relative;
+
         width: 210mm;
         min-height: 297mm;
 
         margin: 0;
+
         padding:
             var(--page-padding-y)
             var(--page-padding-x);
 
         overflow: hidden;
 
+        background: var(--page-background) !important;
+
         box-shadow: none;
-
-        color: var(--text);
-
-        background:
-            radial-gradient(
-                circle at 88% 7%,
-                var(--accent-violet),
-                transparent 27%
-            ),
-            radial-gradient(
-                circle at 10% 93%,
-                var(--accent-teal),
-                transparent 32%
-            ),
-            radial-gradient(
-                circle at 82% 72%,
-                var(--accent-blue),
-                transparent 29%
-            ),
-            var(--page-background) !important;
 
         break-after: avoid;
         break-inside: avoid;
@@ -640,14 +618,30 @@ a:focus-visible {
         pointer-events: none;
 
         background:
-            linear-gradient(
-                to bottom,
-                rgba(11, 13, 18, 0.01),
-                rgba(11, 13, 18, 0.17)
-            ) !important;
+            radial-gradient(
+                circle at 88% 7%,
+                var(--accent-violet),
+                transparent 27%
+            ),
+            radial-gradient(
+                circle at 10% 93%,
+                var(--accent-teal),
+                transparent 32%
+            ),
+            radial-gradient(
+                circle at 82% 72%,
+                var(--accent-blue),
+                transparent 29%
+            );
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
     .page-content {
+        position: relative;
+        z-index: 1;
+
         min-height:
             calc(
                 297mm -
