@@ -569,13 +569,15 @@ a:focus-visible {
     margin: 0;
 }
 
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
 @media print {
 
     html,
     body {
-        width: var(--page-width);
-        height: var(--page-height);
-
         margin: 0;
         padding: 0;
 
@@ -590,12 +592,10 @@ a:focus-visible {
     }
 
     .page {
-        width: var(--page-width);
-        height: var(--page-height);
-        min-height: 0;
+        width: 210mm;
+        min-height: 297mm;
 
         margin: 0;
-
         padding:
             var(--page-padding-y)
             var(--page-padding-x);
@@ -604,13 +604,8 @@ a:focus-visible {
 
         box-shadow: none;
 
-        break-after: avoid;
-        break-inside: avoid;
+        color: var(--text);
 
-        page-break-after: avoid;
-        page-break-inside: avoid;
-
-        /* Keep the subtle gradient background when printing */
         background:
             radial-gradient(
                 circle at 88% 7%,
@@ -628,10 +623,21 @@ a:focus-visible {
                 transparent 29%
             ),
             var(--page-background) !important;
+
+        break-after: avoid;
+        break-inside: avoid;
+
+        page-break-after: avoid;
+        page-break-inside: avoid;
     }
 
     .page::before {
-        display: block;
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
 
         background:
             linear-gradient(
@@ -644,7 +650,7 @@ a:focus-visible {
     .page-content {
         min-height:
             calc(
-                var(--page-height) -
+                297mm -
                 (2 * var(--page-padding-y))
             );
     }
@@ -652,6 +658,4 @@ a:focus-visible {
     a {
         text-decoration: none;
     }
-
 }
-```
