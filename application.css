@@ -21,9 +21,11 @@
     --accent-blue: rgba(44, 89, 132, 0.18);
     --accent-teal: rgba(70, 119, 111, 0.14);
 
+    /* A4 */
     --page-width: 210mm;
     --page-height: 297mm;
 
+    /* Content margins inside A4 */
     --page-padding-x: 17mm;
     --page-padding-y: 14mm;
 
@@ -558,6 +560,8 @@ a:focus-visible {
     }
 
 }
+
+
 /* ========================================
    PRINT
 ======================================== */
@@ -569,79 +573,27 @@ a:focus-visible {
 
 @media print {
 
-    html,
-    body {
+    html {
         width: 210mm;
+        height: 297mm;
+
         margin: 0;
         padding: 0;
 
-        background: var(--page-background) !important;
+        background: #0b0d12 !important;
     }
 
     body {
-        display: block;
-
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    .page {
-        position: relative;
-
         width: 210mm;
         height: 297mm;
         min-height: 297mm;
-
-        margin: 0;
-        padding:
-            var(--page-padding-y)
-            var(--page-padding-x);
-
-        overflow: hidden;
-
-        background: var(--page-background) !important;
-
-        box-shadow: none;
-
-        break-after: avoid;
-        break-inside: avoid;
-
-        page-break-after: avoid;
-        page-break-inside: avoid;
-    }
-
-    .page::before {
-        display: none;
-    }
-
-    .page-content {
-        position: relative;
-        z-index: 1;
-
-        min-height:
-            calc(
-                297mm -
-                (2 * var(--page-padding-y))
-            );
-    }
-
-    a {
-        text-decoration: none;
-    }
-}
-@media print {
-
-    html,
-    body {
-        width: 210mm !important;
-        height: 297mm !important;
-        min-width: 210mm !important;
-        min-height: 297mm !important;
 
         margin: 0 !important;
         padding: 0 !important;
 
         display: block !important;
+
+        background: #0b0d12 !important;
     }
 
     .page {
@@ -652,17 +604,23 @@ a:focus-visible {
         margin: 0 !important;
         padding: 14mm 17mm !important;
 
-        box-sizing: border-box !important;
+        overflow: hidden;
 
         background: #0b0d12 !important;
+
         box-shadow: none !important;
     }
 
     .page::before {
         display: none !important;
+        content: none !important;
     }
 
     .page-content {
         min-height: 269mm !important;
+    }
+
+    a {
+        text-decoration: none;
     }
 }
