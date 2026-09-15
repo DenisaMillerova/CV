@@ -629,3 +629,40 @@ a:focus-visible {
         text-decoration: none;
     }
 }
+@media print {
+
+    html,
+    body {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-width: 210mm !important;
+        min-height: 297mm !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        display: block !important;
+    }
+
+    .page {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+
+        margin: 0 !important;
+        padding: 14mm 17mm !important;
+
+        box-sizing: border-box !important;
+
+        background: #0b0d12 !important;
+        box-shadow: none !important;
+    }
+
+    .page::before {
+        display: none !important;
+    }
+
+    .page-content {
+        min-height: 269mm !important;
+    }
+}
