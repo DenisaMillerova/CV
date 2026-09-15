@@ -558,11 +558,10 @@ a:focus-visible {
     }
 
 }
-
-```css
 /* ========================================
    PRINT
 ======================================== */
+
 @page {
     size: A4 portrait;
     margin: 0;
@@ -572,8 +571,10 @@ a:focus-visible {
 
     html,
     body {
+        width: 210mm;
         margin: 0;
         padding: 0;
+
         background: var(--page-background) !important;
     }
 
@@ -588,10 +589,10 @@ a:focus-visible {
         position: relative;
 
         width: 210mm;
+        height: 297mm;
         min-height: 297mm;
 
         margin: 0;
-
         padding:
             var(--page-padding-y)
             var(--page-padding-x);
@@ -610,32 +611,7 @@ a:focus-visible {
     }
 
     .page::before {
-        content: "";
-
-        position: absolute;
-        inset: 0;
-
-        pointer-events: none;
-
-        background:
-            radial-gradient(
-                circle at 88% 7%,
-                var(--accent-violet),
-                transparent 27%
-            ),
-            radial-gradient(
-                circle at 10% 93%,
-                var(--accent-teal),
-                transparent 32%
-            ),
-            radial-gradient(
-                circle at 82% 72%,
-                var(--accent-blue),
-                transparent 29%
-            );
-
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        display: none;
     }
 
     .page-content {
